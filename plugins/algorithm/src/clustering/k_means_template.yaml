@@ -1,0 +1,24 @@
+connector:
+  input:
+    - type: s3
+      bucket: "filesystem"
+      endpoint: "10.11.33.132:9000"
+      access_key: "minioadmin"
+      access_secret: "minioadmin"
+  output:
+    - type: postgresql
+      host: "10.105.20.64"
+      port: 32432
+      username: "postgres"
+      password: "QcThDsduYf"
+      schema_name: "public"
+      database_name: "tbt_crawler"
+algorithm:
+  type: KMeans
+  cols: [ "sepallength", "sepalwidth", "petallength", "petalwidth" ]
+  n_clusters: 2
+  max_iter: 100
+  input:
+    data: "iris-ASDK9821.csv"
+  output:
+    data: "k_means_result_pg"

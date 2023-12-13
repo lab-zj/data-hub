@@ -1,0 +1,45 @@
+image:
+  repository: docker-registry-ops-dev.lab.zjvis.net:32443/docker.io/conti-algorithm
+  tag: "2022.11.18-r0"
+centos:
+  name: centos
+  repository: docker-registry-ops-dev.lab.zjvis.net:32443/docker.io/centos
+  tag: "centos8.4.2105"
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+nodeSelector: {}
+tolerations: []
+livenessProbe:
+  failureThreshold: 30
+  httpGet:
+    path: /healthy/liveness
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 1
+readinessProbe:
+  failureThreshold: 3
+  httpGet:
+    path: /healthy/readiness
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 1
+extraEnv:
+  - name: WAITRESS_SERVE_CALL
+    value: 'main:create_app'
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1g
+    nginx.org/client-max-body-size: 1g
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  hosts:
+    - host: data-hub-dev.lab.zjvis.net
+      paths:
+        - path: /algorithms/demo_algo_1212/?(.*)
+          pathType: ImplementationSpecific

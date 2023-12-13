@@ -1,0 +1,30 @@
+connector:
+  input:
+    - type: s3
+      bucket: "filesystem"
+      endpoint: "10.11.33.132:9000"
+      access_key: "minioadmin"
+      access_secret: "minioadmin"
+    - type: s3
+      bucket: "filesystem"
+      endpoint: "10.11.33.132:9000"
+      access_key: "minioadmin"
+      access_secret: "minioadmin"
+  output:
+    - type: s3
+      bucket: "filesystem"
+      endpoint: "10.11.33.132:9000"
+      access_key: "minioadmin"
+      access_secret: "minioadmin"
+algorithm:
+  type: Copy
+  params:
+    input:
+      - type: csv
+        name: "2/db2.csv"
+      - type: csv
+        name: "2/db3.csv"
+    output:
+      type: csv
+      name: "2/db998.csv"
+

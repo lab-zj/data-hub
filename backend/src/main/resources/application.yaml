@@ -1,0 +1,83 @@
+server:
+  port: 8080
+logging:
+  level:
+    root: INFO
+spring:
+  h2:
+    console.enabled: true
+    console:
+      settings:
+        web-allow-others: true
+  datasource:
+    url: jdbc:h2:file:./h2
+    driver-class-name: org.h2.Driver
+    username: h2user
+    password: h2password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        show_sql: false
+  servlet:
+    multipart:
+      max-file-size: 1GB
+      max-request-size: 1GB
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    cassandra:
+      enabled: false
+application:
+  initialize:
+    skip: true
+  account:
+    rememberMe:
+      tokenValidityInSeconds: 86400
+  dingtalk:
+    app:
+      authUrlPrefix: "${DING_TALK_APP_AUTH_URL_PREFIX:https://login.dingtalk.com/oauth2/auth}"
+      protocol: ${DING_TALK_APP_PROTOCOL:https}
+      regionId: ${DING_TALK_APP_REGION_ID:central}
+      key: "${DING_TALK_APP_KEY:ding7rac0g9yav7jeluh}"
+      secret: "${DING_TALK_APP_SECRET:IYXC9n8I4Pw5Iixkn7t96Dumo-2c9QVZ1Yujah5_-hjbBcP1oFZVMwMXxgQtGvYi}"
+  login:
+    path:
+      database: /user/login
+      dingtalk: /user/ding-talk-user/login
+  s3:
+    user:
+      home: user/home
+    minio:
+      endpoint: "${application.s3.minio.schema}://${application.s3.minio.host}:${application.s3.minio.port}"
+      accessKey: "${MINIO_ACCESS_KEY:minioadmin}"
+      accessSecret: "${MINIO_ACCESS_SECRET:minioadmin}"
+      schema: http
+      host: ${MINIO_HOST:localhost}
+      port: ${MINIO_PORT:9000}
+      bucket:
+        filesystem: nebula-data-hub
+  algorithm:
+    namespace: algorithm
+    configmap: nebula-algorithm-configmap
+    registry: "docker-registry-ops-dev.lab.zjvis.net:32443"
+    service-account: nebula-backend-java
+    role-bind: nebula-backend-java-rolebinding
+    minio:
+      bucket: nebula-data-hub
+    server:
+      inner:
+        schema: http
+        host: host.docker.internal
+        port: 8888

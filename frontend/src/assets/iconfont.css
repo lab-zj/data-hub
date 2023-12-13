@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4068394 */
+  src: url('//at.alicdn.com/t/c/font_4068394_wof9lz7q0qk.woff2?t=1685007246811') format('woff2'),
+       url('//at.alicdn.com/t/c/font_4068394_wof9lz7q0qk.woff?t=1685007246811') format('woff'),
+       url('//at.alicdn.com/t/c/font_4068394_wof9lz7q0qk.ttf?t=1685007246811') format('truetype'),
+       url('//at.alicdn.com/t/c/font_4068394_wof9lz7q0qk.svg?t=1685007246811#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xinjianwenjianjia:before {
+  content: "\e724";
+}
+
+.icon-a-jiantoubeifen2:before {
+  content: "\e723";
+}
+
+.icon-shuju:before {
+  content: "\e722";
+}
+
+.icon-weiwanpeizhi:before {
+  content: "\e720";
+}
+
+.icon-daorudaorenwu:before {
+  content: "\e721";
+}
+
+.icon-close-circle-fillbeifen:before {
+  content: "\e719";
+}
+
+.icon-a-wenjianjiashouqibeifen2:before {
+  content: "\e71a";
+}
+
+.icon-shipin:before {
+  content: "\e71b";
+}
+
+.icon-feichangguiwenjian:before {
+  content: "\e71c";
+}
+
+.icon-duofenwenjian:before {
+  content: "\e71d";
+}
+
+.icon-wendang:before {
+  content: "\e71e";
+}
+
+.icon-tupian:before {
+  content: "\e71f";
+}
+
+.icon-yunhang:before {
+  content: "\e70b";
+}
+
+.icon-tuxianshi:before {
+  content: "\e70c";
+}
+
+.icon-guanbibeifen:before {
+  content: "\e70d";
+}
+
+.icon-bianji:before {
+  content: "\e70e";
+}
+
+.icon-xiazaibendi:before {
+  content: "\e70f";
+}
+
+.icon-liebiaoxianshi:before {
+  content: "\e710";
+}
+
+.icon-daohang-gengduocaozuobeifen:before {
+  content: "\e711";
+}
+
+.icon-zantingyunhang:before {
+  content: "\e712";
+}
+
+.icon-shujuguanli-daorushuju:before {
+  content: "\e713";
+}
+
+.icon-fanye-baogaobeifen:before {
+  content: "\e714";
+}
+
+.icon-tufenxi-huidaohuaban:before {
+  content: "\e715";
+}
+
+.icon-shanchu:before {
+  content: "\e716";
+}
+
+.icon-check-circle-fill:before {
+  content: "\e717";
+}
+
+.icon-jiantou:before {
+  content: "\e718";
+}

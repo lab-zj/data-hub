@@ -1,0 +1,23 @@
+connector:
+  input:
+    - type: s3
+      bucket: "filesystem"
+      endpoint: "10.11.33.132:9000"
+      access_key: "minioadmin"
+      access_secret: "minioadmin"
+  output:
+    - type: s3
+      bucket: "filesystem"
+      endpoint: "10.11.33.132:9000"
+      access_key: "minioadmin"
+      access_secret: "minioadmin"
+algorithm:
+  type: KMeans
+  cols: [ "sepallength", "sepalwidth", "petallength", "petalwidth" ]
+  n_clusters: 2
+  max_iter: 100
+  input:
+    data: "iris-ASDK9821.csv"
+  output:
+    data: "2/kk_means_result.csv"
+

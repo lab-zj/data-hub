@@ -1,0 +1,26 @@
+connector:
+  input:
+    - type: postgresql
+      host: "10.105.20.64"
+      port: 32432
+      username: "postgres"
+      password: "QcThDsduYf"
+      schema_name: "public"
+      database_name: "tbt_crawler"
+      if_write_table_exists: "replace"
+  output:
+    - type: s3
+      bucket: "filesystem"
+      endpoint: "10.11.33.132:9000"
+      access_key: "minioadmin"
+      access_secret: "minioadmin"
+algorithm:
+  type: Copy
+  params:
+    input:
+      type: "table"
+      name: "china_export_code_ts"
+    output:
+      type: "csv"
+      name: "2/china_export5.csv"
+

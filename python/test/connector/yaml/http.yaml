@@ -1,0 +1,16 @@
+type: http
+url: "http://test_url:80282"
+request:
+  type: "get"
+  headers:
+    Content-Type: application/x-www-form-urlencoded
+  param:
+    a: val_a
+    b:
+      - b1
+      - b2
+      - b3
+    c: 123
+persist:
+  policy: "replace"
+  file_type: "csv"

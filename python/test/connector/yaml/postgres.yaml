@@ -1,0 +1,6 @@
+type: postgresql
+host: "10.105.20.64"
+port: 32432
+username: "postgres"
+password: "QcThDsduYf"
+database_name: "tbt_crawler"

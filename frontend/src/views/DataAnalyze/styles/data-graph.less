@@ -1,0 +1,75 @@
+.graph-node {
+  width: 68px;
+  height: 68px;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 8px 0 4px;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  // box-shadow: 0px 0px 4px 0px rgba(88,98,230,0.2);
+
+  .action-icon {
+    position: absolute;
+    top: -25px;
+    left: -5px;
+    cursor: pointer;
+  }
+
+  .node-icon {
+    width: 32px;
+    height: 34px;
+    font-size: 30px;
+    display: inline-block;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 4px 0px rgba(88,98,230,0.2);
+  }
+
+  &.running {
+    background-color: #EFF0FE;
+  }
+
+  &.success {
+    background-color: #F1F8F0;
+  }
+
+  &.error,&.failed {
+    background-color: #FCEDEE;
+  }
+  
+  .running-progress {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 4px;
+    // background: linear-gradient(270deg, #EFF0FE 0%, #7D85FF 66%, #EFF0FE 100%);
+    // background: linear-gradient(270deg, #EFF0FE 0%, #7D85FF 25%, #EFF0FE 50%, #7D85FF 75%, #EFF0FE 100%);
+    background: linear-gradient(270deg, #d5d8fe 0%, #7D85FF 33%, #d5d8fe 66%, #7D85FF 100%);
+    background-size: 300% 100%;
+    animation: progress 1s infinite linear;
+  }
+
+  .node-label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    padding: 0 4px;
+  }
+
+  .input-rename {
+    font-size: 12px;
+  }
+}
+
+@keyframes progress {
+  0% {
+    background-position: 100% 50%
+  }
+  100%{
+    background-position: 0% 50%
+  }
+}

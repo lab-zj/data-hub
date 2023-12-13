@@ -1,0 +1,56 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: algorithm-deploy
+  labels:
+    app.kubernetes.io/name: algorithm-deploy
+spec:
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: algorithm-deploy
+    spec:
+      containers:
+        - name: deployer
+          image: docker-registry-ops-dev.lab.zjvis.net:32443/docker.io/alpine/helm:3.6.2
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ALGORITHM_NAME
+              value: "algorithm-demo"
+            - name: ALGORITHM_VERSION
+              value: "v1.0"
+            - name: ALGORITHM_NAMESPACE
+              value: "nebula-dev"
+            - name: ALGORITHM_CHART_URL
+              value: "https://resource-ops-dev.lab.zjvis.net/charts/cnconti/flask-1.0.0-C4f979aa.tgz"
+            - name: ALGORITHM_HELM_TIMEOUT
+              value: "300"
+            - name: CALLBACK_ADDRESS
+              value: "http://10.105.20.64:32086/server/algorithm/v1/1/deploy/callback"
+            - name: CALLBACK_TOKEN
+              value: "82b1143a0fd32db03749504176b1bf51"
+          command:
+            - "/bin/sh"
+          args:
+            - "-c"
+            - "/app/bin/deployer.sh"
+          volumeMounts:
+            - mountPath: /app/bin
+              name: nebula-algorithm-init
+            - mountPath: /app/algorithm.values.yaml
+              name: nebula-algorithm-values
+              subPath: algorithm.values.yaml
+      volumes:
+        - name: nebula-algorithm-init
+          configMap:
+            defaultMode: 493
+            name: nebula-algorithm-configmap
+        - name: nebula-algorithm-values
+          secret:
+            secretName: secret-1
+            items:
+              - key: content
+                path: algorithm.values.yaml
+                mode: 384
+      serviceAccountName: nebula-backend-java # TODO yaml文件namespace的权限
+      restartPolicy: OnFailure

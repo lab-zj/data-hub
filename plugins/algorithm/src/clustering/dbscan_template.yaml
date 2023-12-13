@@ -1,0 +1,23 @@
+connector:
+  input:
+    - type: s3
+      bucket: "filesystem"
+      endpoint: "10.11.33.132:9000"
+      access_key: "minioadmin"
+      access_secret: "minioadmin"
+  output:
+    - type: s3
+      bucket: "filesystem"
+      endpoint: "10.11.33.132:9000"
+      access_key: "minioadmin"
+      access_secret: "minioadmin"
+algorithm:
+  type: DBscan
+  cols: [ "sepallength", "sepalwidth", "petallength", "petalwidth" ]
+  eps: 0.5
+  min_samples: 5
+  metric: "euclidean"
+  input:
+    data: "iris-ASDK9821.csv"
+  output:
+    data: "dbscan_result_in_s3"

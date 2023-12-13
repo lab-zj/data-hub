@@ -1,0 +1,5 @@
+type: s3
+bucket: "filesystem"
+endpoint: "http://10.11.33.132:9000"
+access_key: "minioadmin"
+access_secret: "minioadmin"

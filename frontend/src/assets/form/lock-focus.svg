@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>矩形</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="密码icon" fill-rule="nonzero">
+            <rect id="矩形" fill="#5D637E" opacity="0" x="0" y="0" width="16" height="16"></rect>
+            <path d="M13.5,6 L13,6 L13,5 C13,2.23928571 10.7607143,0 8,0 C5.23928571,0 3,2.23928571 3,5 L3,6 L2.5,6 C1.94821429,6 1.5,6.44821429 1.5,7 L1.5,15 C1.5,15.5517857 1.94821429,16 2.5,16 L13.5,16 C14.0517857,16 14.5,15.5517857 14.5,15 L14.5,7 C14.5,6.44821429 14.0517857,6 13.5,6 Z M4,5 C4,2.79464286 5.79464286,1 8,1 C10.2053571,1 12,2.79464286 12,5 L12,6 L4,6 L4,5 Z M13.5,15 L2.5,15 L2.5,7 L13.5,7 L13.5,15 Z M8,9 C7.72321429,9 7.5,9.22321429 7.5,9.5 L7.5,12.5 C7.5,12.7767857 7.72321429,13 8,13 C8.27678571,13 8.5,12.7767857 8.5,12.5 L8.5,9.5 C8.5,9.22321429 8.27678571,9 8,9 Z" id="形状" fill="#6973FF"></path>
+        </g>
+    </g>
+</svg>
